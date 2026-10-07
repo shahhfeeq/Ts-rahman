@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TS RAHMAN — AI by Shafeeq</title>
+<style>
+:root{--bg:#eef4f8;--card:#fff;--ink:#0b2239;--mut:#566b7f;--pri:#0b6e8c;--pri2:#084c64;--ok:#0f7a58;--okb:#e3f6ee;--bad:#b83227;--badb:#fbe9e7;--line:#d8e3ea;--sh:0 10px 30px rgba(10,40,70,.09);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#06131e;--card:#0d2233;--ink:#e8f1f8;--mut:#93a9bb;--pri:#3bb3d1;--pri2:#7fd3e8;--ok:#4fd1a1;--okb:#0e3328;--bad:#ff8b7e;--badb:#3a1713;--line:#1b3448;--sh:0 10px 30px rgba(0,0,0,.4)}}
+:root[data-theme="dark"]{--bg:#06131e;--card:#0d2233;--ink:#e8f1f8;--mut:#93a9bb;--pri:#3bb3d1;--pri2:#7fd3e8;--ok:#4fd1a1;--okb:#0e3328;--bad:#ff8b7e;--badb:#3a1713;--line:#1b3448;--sh:0 10px 30px rgba(0,0,0,.4)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;min-height:100vh}
+header{background:linear-gradient(135deg,#06324a,#0b6e8c);color:#fff;padding:18px 20px 34px;position:relative;overflow:hidden}
+header:after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:22px;background:var(--bg);clip-path:path("M0 22 Q60 0 120 12 T240 12 T360 12 T480 12 T600 12 T720 12 T840 12 T960 12 T1080 12 T1200 12 T1320 12 T1440 12 V22Z");animation:wave 8s linear infinite;background-size:100%}
+@keyframes wave{50%{transform:translateX(-30px)}}
+.hw{max-width:860px;margin:0 auto;display:flex;align-items:center;gap:12px}
+.logo{width:44px;height:44px;border-radius:12px;background:rgba(255,255,255,.14);display:grid;place-items:center}
+h1{margin:0;font-size:26px;letter-spacing:.14em;line-height:1.1}
+.sub{font-size:11px;opacity:.75;letter-spacing:.08em;margin-top:2px}
+.sp{flex:1}
+.ib{background:rgba(255,255,255,.14);border:0;color:#fff;border-radius:10px;padding:8px 12px;font-size:14px;cursor:pointer;transition:.2s}.ib:hover{background:rgba(255,255,255,.25)}
+main{max-width:860px;margin:-18px auto 40px;padding:0 16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:var(--sh);padding:22px;margin-bottom:16px}
+.screen{display:none}.screen.on{display:block;animation:up .45s cubic-bezier(.2,.8,.2,1)}
+@keyframes up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+h2{margin:0 0 6px;font-size:22px}p.m{color:var(--mut);margin:0 0 16px}
+.drop{border:2px dashed var(--line);border-radius:16px;padding:32px 16px;text-align:center;transition:.25s}.drop.h{border-color:var(--pri);background:rgba(11,110,140,.06);transform:scale(1.01)}
+.btn{background:var(--pri);color:#fff;border:0;border-radius:12px;padding:13px 22px;font-size:16px;font-weight:600;cursor:pointer;transition:.2s;min-height:46px}.btn:hover{transform:translateY(-1px);filter:brightness(1.08)}.btn:active{transform:scale(.97)}.btn:disabled{opacity:.5;cursor:default;transform:none}
+.btn.g{background:transparent;color:var(--pri);border:1.5px solid var(--pri)}
+.btn.big{padding:15px 30px;font-size:18px}
+.bar{height:8px;background:var(--line);border-radius:9px;overflow:hidden}.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--pri),#38c3b0);border-radius:9px;transition:width .5s ease}
+.err{background:var(--badb);color:var(--bad);border-radius:12px;padding:12px 14px;margin-top:12px;display:none;animation:up .3s}
+.fn{margin-top:14px;display:none}
+label.t{font-weight:600;display:block;margin:18px 0 8px}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pill{border:1.5px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:9px 16px;cursor:pointer;font-size:15px;transition:.2s}.pill:hover{border-color:var(--pri)}.pill.on{background:var(--pri);color:#fff;border-color:var(--pri);transform:scale(1.04)}
+input[type=number],input[type=text]{border:1.5px solid var(--line);background:var(--card);color:var(--ink);border-radius:10px;padding:9px 12px;font-size:16px;width:100%;max-width:340px}
+.chip{display:inline-block;background:rgba(11,110,140,.12);color:var(--pri);border-radius:8px;padding:4px 10px;font-size:13px;font-weight:600}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;font-size:14px;color:var(--mut)}
+.qt{font-size:20px;font-weight:600;margin:16px 0}
+.opt{display:flex;gap:12px;width:100%;text-align:left;border:1.5px solid var(--line);background:var(--card);color:var(--ink);border-radius:14px;padding:14px;margin-bottom:10px;font-size:16px;cursor:pointer;transition:.2s;animation:up .4s backwards}
+.opt:nth-child(2){animation-delay:.05s}.opt:nth-child(3){animation-delay:.1s}.opt:nth-child(4){animation-delay:.15s}
+.opt:not(:disabled):hover{border-color:var(--pri);transform:translateX(3px)}.opt b{width:28px;height:28px;border-radius:50%;background:var(--bg);display:grid;place-items:center;flex:none;font-size:14px}
+.opt.sel{border-color:var(--pri);background:rgba(11,110,140,.08)}
+.opt.ok{border-color:var(--ok);background:var(--okb);animation:pop .5s}.opt.ok b{background:var(--ok);color:#fff}
+.opt.no{border-color:var(--bad);background:var(--badb);animation:shake .4s}.opt.no b{background:var(--bad);color:#fff}
+.opt:disabled{cursor:default}
+@keyframes pop{40%{transform:scale(1.025);box-shadow:0 0 0 8px rgba(15,122,88,.15)}}
+@keyframes shake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.fb{border-radius:14px;padding:16px;margin-top:6px;animation:up .4s}.fb.ok{background:var(--okb)}.fb.no{background:var(--badb)}
+.fb h3{margin:0 0 6px;font-size:17px}.fb.ok h3{color:var(--ok)}.fb.no h3{color:var(--bad)}.fb p{margin:6px 0}
+.src{display:inline-block;font-size:12px;font-weight:700;border-radius:6px;padding:2px 8px;margin-right:6px}.src.pdf{background:var(--pri);color:#fff}.src.web{background:#8a5a00;color:#fff}
+.km{margin-top:12px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;display:none;animation:up .35s}
+.nav{display:flex;justify-content:space-between;gap:10px;margin-top:16px;flex-wrap:wrap}
+.load{text-align:center;padding:30px 10px}.ship{font-size:44px;animation:bob 2.2s ease-in-out infinite}@keyframes bob{50%{transform:translateY(-8px) rotate(3deg)}}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:18px 0}.st{background:var(--bg);border-radius:14px;padding:14px;text-align:center;animation:up .5s backwards}.st b{display:block;font-size:24px}.st span{font-size:13px;color:var(--mut)}
+.ring{width:160px;height:160px;margin:6px auto;position:relative}.ring svg{transform:rotate(-90deg)}.ring circle{fill:none;stroke-width:12;stroke-linecap:round}.ring .bg{stroke:var(--line)}.ring .fg{stroke:var(--pri);stroke-dasharray:440;stroke-dashoffset:440;transition:stroke-dashoffset 1.4s cubic-bezier(.2,.8,.2,1)}
+.ring div{position:absolute;inset:0;display:grid;place-items:center;font-size:34px;font-weight:700}
+.rv{border-top:1px solid var(--line);padding:16px 0}.rv:first-child{border:0}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+.qi{max-width:100%;max-height:320px;display:block;margin:8px auto;border-radius:12px;border:1px solid var(--line);background:#fff;cursor:zoom-in}.qi.z{position:fixed;inset:0;margin:auto;max-width:96vw;max-height:96vh;z-index:50;cursor:zoom-out;box-shadow:0 0 0 100vmax rgba(0,0,0,.75)}
+@media(max-width:520px){h1{font-size:21px}.card{padding:16px}.qt{font-size:18px}.btn{flex:1}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style></head><body>
+<header><div class="hw"><div class="logo"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="5" r="2"/><path d="M12 7v14M7 11h10M4 15c0 4 4 6 8 6s8-2 8-6"/></svg></div><div><h1>TS RAHMAN</h1><div class="sub"><i>AI by Shafeeq</i></div></div><div class="sp"></div><button class="ib" id="gear" hidden>⚙ Settings</button></div></header>
+<main>
+<section class="screen on card" id="s-up"><h2>Upload your study material</h2><p class="m">Upload a PDF textbook or notes. Questions are generated from your document.</p>
+<div class="drop" id="drop"><div style="font-size:40px">📘</div><p class="m">Drag a PDF here, or</p><button class="btn big" id="upb">Upload PDF</button><input type="file" id="file" accept="application/pdf" hidden></div>
+<div class="fn" id="fn"><b id="fname"></b> <span class="m" id="fst"></span><div class="bar" style="margin-top:8px"><i id="fbar"></i></div></div><div class="err" id="uerr"></div></section>
+
+<section class="screen card" id="s-set"><h2>Quiz settings</h2><p class="m" id="dinfo"></p>
+<label class="t">Number of questions</label><div class="pills" id="gn"></div><input type="number" id="cn" min="1" max="100" placeholder="Custom (1–100)" style="margin-top:10px">
+<label class="t">Difficulty</label><div class="pills" id="gd"></div>
+<label class="t">Question type</label><span class="chip">Multiple choice · one correct answer</span>
+<label class="t">Quiz mode</label><div class="pills" id="gm"></div>
+<label class="t">Focus (optional)</label><input type="text" id="pref" placeholder="e.g. definitions, chapter 3, numerical facts">
+<div class="row" style="margin-top:22px"><button class="btn big" id="start">Start Quiz</button><button class="btn g" id="resume" hidden>Back to current quiz</button></div><div class="err" id="gerr"></div></section>
+
+<section class="screen card" id="s-load"><div class="load"><div class="ship">🚢</div><h2 id="lt">Analyzing your PDF…</h2><p class="m" id="lm">Reading the document</p><div class="bar"><i id="lbar"></i></div></div></section>
+
+<section class="screen" id="s-q"><div class="card"><div class="top"><span id="qc"></span><span id="tm"></span></div><div class="bar"><i id="qb"></i></div><div id="qa"></div>
+<div class="nav"><button class="btn g" id="prev">← Previous</button><button class="btn" id="next">Next →</button></div></div>
+<div class="row"><button class="btn g" id="rs">Restart quiz</button></div></section>
+
+<section class="screen card" id="s-res"><div style="text-align:center"><h2>Quiz complete</h2><div class="ring"><svg width="160" height="160"><circle class="bg" cx="80" cy="80" r="70"/><circle class="fg" id="rf" cx="80" cy="80" r="70"/></svg><div id="rp">0%</div></div><p class="m" id="rm"></p></div>
+<div class="stats" id="stats"></div>
+<div class="row"><button class="btn" id="retry">Retry Quiz</button><button class="btn g" id="newq">Generate New Quiz</button><button class="btn g" id="chs">Change Settings</button><button class="btn g" id="rvb">Review Answers</button></div><div id="rvw" style="margin-top:20px"></div></section>
+</main>
+<script>
+const AIuse=async()=>{const call=async(prompt,o={})=>{const r=await fetch('/api/ai',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({prompt,web:!!o.web,imgs:(o.imgs||[]).map(u=>u.split(',')[1])})});const d=await r.json().catch(()=>({}));if(!r.ok)throw new Error(d.error||'AI error '+r.status);return d};const f=(p,o)=>call(p,o);f.json=async(p,o)=>{const t=(await call(p,o)).text;return JSON.parse(t.slice(t.indexOf('['),t.lastIndexOf(']')+1))};return f};
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script>
+const $=s=>document.querySelector(s),L='ABCD';
+const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const IMGINS=u=>`Attached are images of PDF pages ${u.join(', ')} (in that order). Where a page shows a figure, diagram, photo or part, write some image-based questions (up to about a third of the questions), such as "What is the name of the part shown in the image?" or "What does this diagram represent?". For these, set "img":{"p":page number,"box":[x,y,w,h]} where box is the figure's bounding box as fractions 0-1 of the page (x,y = top-left), drawn tightly around ONLY the figure being asked about and excluding any caption or label that would reveal the answer. The question must need the image to be answered and its answer must be certain from the page text or labels. Never refer to an image you cannot see.`;
+const imgTag=q=>`<img class="qi" src="${q.url}" alt="Figure from PDF page ${q.img.p}"><div class="m" style="text-align:center;font-size:12px;margin:-4px 0 8px">Figure from PDF · page ${q.img.p} · tap to enlarge</div>`;
+async function pageCanvas(n,w){const pg=await S.pdf.getPage(n),v=pg.getViewport({scale:1}),vp=pg.getViewport({scale:w/v.width}),c=document.createElement('canvas');c.width=vp.width;c.height=vp.height;await pg.render({canvasContext:c.getContext('2d'),viewport:vp}).promise;return c}
+async function pageJPG(n){return (await pageCanvas(n,900)).toDataURL('image/jpeg',.6)}
+async function crop(im){const c=await pageCanvas(im.p,1200);let[x,y,w,h]=Array.isArray(im.box)?im.box.map(Number):[0,0,1,1];if([x,y,w,h].some(v=>!isFinite(v))||w<.08||h<.08){x=0;y=0;w=1;h=1}x=Math.min(Math.max(x,0),.95);y=Math.min(Math.max(y,0),.95);w=Math.min(w,1-x);h=Math.min(h,1-y);const o=document.createElement('canvas');o.width=Math.round(c.width*w);o.height=Math.round(c.height*h);o.getContext('2d').drawImage(c,c.width*x,c.height*y,o.width,o.height,0,0,o.width,o.height);return o.toDataURL('image/jpeg',.85)}
+let S={pdf:null,pages:[],name:'',cfg:{n:10,d:'Mixed',m:'Instant feedback'},qs:[],a:[],i:0,t0:0,end:0,scr:'s-up',tick:null};
+function go(id){document.querySelectorAll('.screen').forEach(e=>e.classList.toggle('on',e.id===id));S.scr=id;$('#gear').hidden=!S.pages.length;window.scrollTo({top:0,behavior:'smooth'})}
+function pills(el,opts,key,cb){const g=$(el);g.innerHTML=opts.map(o=>`<button class="pill${String(S.cfg[key])===String(o)?' on':''}" data-v="${o}">${o}</button>`).join('');g.onclick=e=>{const b=e.target.closest('.pill');if(!b)return;S.cfg[key]=key==='n'?+b.dataset.v:b.dataset.v;g.querySelectorAll('.pill').forEach(p=>p.classList.toggle('on',p===b));if(key==='n')$('#cn').value=''}};
+pills('#gn',[5,10,20,30,50],'n');pills('#gd',['Easy','Medium','Hard','Mixed'],'d');pills('#gm',['Instant feedback','Exam mode'],'m');
+$('#cn').oninput=e=>{const v=Math.max(1,Math.min(100,+e.target.value||0));if(v){S.cfg.n=v;document.querySelectorAll('#gn .pill').forEach(p=>p.classList.remove('on'))}};
+function perr(el,m){const e=$(el);e.textContent=m;e.style.display=m?'block':'none'}
+// ---- PDF
+$('#upb').onclick=()=>$('#file').click();
+const dr=$('#drop');['dragover','dragenter'].forEach(t=>dr.addEventListener(t,e=>{e.preventDefault();dr.classList.add('h')}));['dragleave','drop'].forEach(t=>dr.addEventListener(t,e=>{e.preventDefault();dr.classList.remove('h')}));
+dr.addEventListener('drop',e=>handle(e.dataTransfer.files[0]));$('#file').onchange=e=>handle(e.target.files[0]);
+async function handle(f){perr('#uerr','');if(!f)return;if(f.type!=='application/pdf'&&!/\.pdf$/i.test(f.name))return perr('#uerr','Please choose a PDF file.');
+if(S.scr==='s-q'&&S.a.some(x=>x!=null)&&!confirm('Uploading a new PDF will discard your current quiz. Continue?'))return;
+$('#fn').style.display='block';$('#fname').textContent=f.name;$('#fst').textContent='Reading…';$('#fbar').style.width='3%';
+try{if(!window.pdfjsLib)throw new Error('The PDF reader could not load. Check your connection.');
+pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+const pdf=await pdfjsLib.getDocument({data:await f.arrayBuffer()}).promise,pg=[];
+for(let p=1;p<=pdf.numPages;p++){const po=await pdf.getPage(p),t=await po.getTextContent();let im=false;try{const ol=await po.getOperatorList(),O=pdfjsLib.OPS;im=ol.fnArray.some(f=>f===O.paintImageXObject||f===O.paintInlineImageXObject||f===O.paintImageMaskXObject)}catch(_){}pg.push({n:p,im,t:t.items.map(x=>x.str).join(' ').replace(/\s+/g,' ').trim()});$('#fbar').style.width=(5+90*p/pdf.numPages)+'%';$('#fst').textContent=`Page ${p} of ${pdf.numPages}`}
+const chars=pg.reduce((a,p)=>a+p.t.length,0);if(chars<300)throw new Error('No readable text found. This PDF may be scanned images; try a text-based PDF.');
+S.pdf=pdf;S.pages=pg;S.name=f.name;S.qs=[];$('#fbar').style.width='100%';$('#fst').textContent=`✓ ${pdf.numPages} pages · ${Math.round(chars/1000)}k characters`;
+$('#dinfo').textContent=`Source: ${f.name} (${pdf.numPages} pages)`;$('#resume').hidden=true;setTimeout(()=>go('s-set'),700)}
+catch(e){$('#fbar').style.width='0';$('#fst').textContent='';perr('#uerr','Could not process this PDF: '+(e.message||e))}}
+// ---- AI generation
+const shuf=a=>{for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+function seg(k,B){const P=S.pages,s=Math.floor(k*P.length/B);let o='',i=s,ip=[];while(i<P.length&&o.length<22000){if(P[i].t)o+=`[Page ${P[i].n}] ${P[i].t}\n`;if(P[i].im)ip.push(P[i].n);i++}return{o,ip}}
+async function gen(){perr('#gerr','');const sm=await AIuse();if(!sm){perr('#gerr','AI is not available.');return}
+const N=S.cfg.n,B=Math.ceil(N/10),qs=[];go('s-load');$('#lt').textContent='Analyzing your PDF…';
+try{for(let k=0;k<B;k++){const c=Math.min(10,N-qs.length>0?Math.ceil((N-qs.length)/(B-k)):0);if(c<=0)break;
+$('#lm').textContent=`Writing questions ${qs.length+1}–${qs.length+c} of ${N}`;$('#lbar').style.width=(8+88*k/B)+'%';
+const sg=seg(k,B),pick=sg.ip.filter((_,i)=>i%Math.max(1,Math.ceil(sg.ip.length/3))===0).slice(0,3),imgs=[],used=[];for(const n of pick){try{imgs.push(await pageJPG(n));used.push(n)}catch(_){}}
+const d=S.cfg.d==='Mixed'?'a mix of easy, medium and hard':S.cfg.d.toLowerCase();
+const pr=`You are an expert exam writer. Using ONLY the source text below (pages marked [Page n]), write ${c} multiple-choice questions. Difficulty: ${d}. ${$('#pref').value?'Focus: '+$('#pref').value+'.':''}
+Rules: test understanding, not sentence copying; exactly 4 options; exactly one correct answer; no ambiguous questions; every correct answer must be directly supported by the text, so skip anything unsupported; never invent facts; vary which option is correct; avoid repeating these earlier questions: ${qs.map(q=>q.q).slice(-25).join(' | ')||'none'}.
+Verify each answer against the text before output. Return ONLY a JSON array of objects: {"q":string,"o":[4 strings without letters],"a":index 0-3 of correct option,"p":page number,"t":short topic or section,"s":one-sentence paraphrase of the supporting PDF info,"e":[4 short strings: for each option in order, why it is correct or why it is wrong, based on the text],"img":optional, only for image-based questions}.
+${imgs.length?IMGINS(used):''}\nSOURCE:\n${sg.o}`;
+let r;try{r=await sm.json(pr,{cache:false,modelTier:'default',imgs})}catch(e){if(e.code==='not_granted')throw new Error('AI access was not granted.');if(k===0)throw e;continue}
+(Array.isArray(r)?r:r.questions||[]).forEach(q=>{if(q&&q.q&&Array.isArray(q.o)&&q.o.length===4&&Array.isArray(q.e)&&q.e.length===4&&q.a>=0&&q.a<4&&!qs.some(x=>x.q===q.q)){const ix=shuf([0,1,2,3]);qs.push({q:q.q,o:ix.map(i=>q.o[i]),e:ix.map(i=>q.e[i]),a:ix.indexOf(q.a),p:q.p,t:q.t,s:q.s,img:q.img&&used.includes(+q.img.p)?{p:+q.img.p,box:q.img.box}:null})}})}
+if(!qs.length)throw new Error('No questions could be generated from this PDF.');
+$('#lm').textContent='Preparing figures…';for(const q of qs){if(q.img){try{q.url=await crop(q.img)}catch(_){q.img=null}}}
+S.qs=qs.slice(0,N);S.a=new Array(S.qs.length).fill(null);S.i=0;S.t0=Date.now();S.end=0;$('#lbar').style.width='100%';
+if(qs.length<N)alert(`Only ${S.qs.length} questions could be verified from the PDF.`);startQ()}
+catch(e){go('s-set');perr('#gerr','Question generation failed: '+(e.message||e.code||e))}}
+// ---- Quiz
+const exam=()=>S.cfg.m==='Exam mode';
+function startQ(){go('s-q');clearInterval(S.tick);S.tick=setInterval(()=>{if(!S.end)$('#tm').textContent='⏱ '+fmt((Date.now()-S.t0)/1000)},1000);renderQ()}
+const fmt=s=>{s=Math.round(s);return Math.floor(s/60)+':'+String(s%60).padStart(2,'0')};
+function fbHTML(q,i,a,rv){const ok=a===q.a;return `<div class="fb ${ok?'ok':'no'}"><h3>${ok?'✓ Correct':'✗ Incorrect'}</h3><p><b>Correct answer:</b> ${L[q.a]}. ${esc(q.o[q.a])}</p>${ok?'':`<p><b>Why ${L[a]} is wrong:</b> ${esc(q.e[a])}</p>`}<p><b>${ok?'Why:':'Why '+L[q.a]+' is right:'}</b> ${esc(q.e[q.a])}</p><p><span class="src pdf">FROM YOUR PDF</span>${q.p?'Page '+esc(q.p)+' · ':''}${esc(q.t||'')}${q.s?' — '+esc(q.s):''}</p><button class="btn g" data-km="${i}" style="margin-top:6px">Know More</button><div class="km" id="km${rv?'r':''}${i}"></div></div>`}
+function optsHTML(q,a,lock,reveal){return q.o.map((o,k)=>{let c='';if(reveal&&a!=null){if(k===q.a)c=' ok';else if(k===a)c=' no'}else if(k===a)c=' sel';return `<button class="opt${c}" data-k="${k}" ${lock?'disabled':''}><b>${L[k]}</b><span>${esc(o)}</span></button>`}).join('')}
+function renderQ(){const q=S.qs[S.i],a=S.a[S.i],n=S.qs.length,lock=!exam()&&a!=null;
+$('#qc').textContent=`Question ${S.i+1} of ${n}`;$('#qb').style.width=(S.i+(a!=null?1:0))/n*100+'%';
+$('#qa').innerHTML=`<div class="qt">${esc(q.q)}</div>${q.url?imgTag(q):''}<div id="ops">${optsHTML(q,a,lock,!exam())}</div><div id="fbx">${lock?fbHTML(q,S.i,a):''}</div>`;
+$('#prev').disabled=S.i===0;const last=S.i===n-1;$('#next').textContent=last?'Finish quiz':'Next →';$('#next').disabled=a==null;
+$('#ops').onclick=e=>{const b=e.target.closest('.opt');if(!b||(!exam()&&S.a[S.i]!=null))return;const k=+b.dataset.k;S.a[S.i]=k;
+if(exam()){$('#ops').innerHTML=optsHTML(q,k,false,false);$('#qb').style.width=(S.i+1)/n*100+'%'}else{$('#ops').innerHTML=optsHTML(q,k,true,true);$('#fbx').innerHTML=fbHTML(q,S.i,k);$('#qb').style.width=(S.i+1)/n*100+'%'}$('#next').disabled=false}}
+$('#prev').onclick=()=>{S.i--;renderQ()};
+$('#next').onclick=()=>{if(S.i<S.qs.length-1){S.i++;renderQ()}else finish()};
+$('#rs').onclick=()=>{if(confirm('Restart this quiz? Your answers will be cleared.')){S.a.fill(null);S.i=0;S.t0=Date.now();S.end=0;renderQ()}};
+function finish(){S.end=Date.now();clearInterval(S.tick);const n=S.qs.length,c=S.qs.filter((q,i)=>S.a[i]===q.a).length,p=Math.round(c/n*100);go('s-res');
+$('#stats').innerHTML=[['Score',`${c}/${n}`],['Correct',c],['Incorrect',n-c],['Percentage',p+'%'],['Difficulty',S.cfg.d],['Time',fmt((S.end-S.t0)/1000)]].map((x,i)=>`<div class="st" style="animation-delay:${i*.07}s"><b>${x[1]}</b><span>${x[0]}</span></div>`).join('');
+$('#rm').textContent=p>=80?'Excellent work.':p>=50?'Good effort. Review the missed questions.':'Keep practising. Review the answers below.';$('#rvw').innerHTML='';
+const f=$('#rf');f.style.strokeDashoffset=440;requestAnimationFrame(()=>requestAnimationFrame(()=>f.style.strokeDashoffset=440*(1-p/100)));let v=0;const t=setInterval(()=>{v=Math.min(p,v+2);$('#rp').textContent=v+'%';if(v>=p)clearInterval(t)},25)}
+$('#rvb').onclick=()=>{$('#rvw').innerHTML=S.qs.map((q,i)=>{const a=S.a[i];return `<div class="rv"><div class="qt" style="font-size:17px">${i+1}. ${esc(q.q)}</div>${q.url?imgTag(q):''}${optsHTML(q,a,true,true)}${a==null?'<p class="m">Not answered.</p>':''}${a==null?'':fbHTML(q,i,a,true)}</div>`}).join('');$('#rvw').scrollIntoView({behavior:'smooth'})};
+$('#retry').onclick=()=>{S.a.fill(null);S.i=0;S.t0=Date.now();S.end=0;startQ()};
+$('#newq').onclick=gen;$('#chs').onclick=()=>go('s-set');
+document.addEventListener('click',e=>{if(e.target.classList&&e.target.classList.contains('qi'))e.target.classList.toggle('z')});
+// ---- settings
+$('#start').onclick=gen;
+$('#gear').onclick=()=>{$('#resume').hidden=!(S.qs.length&&!S.end);go('s-set')};
+$('#resume').onclick=()=>go('s-q');
+$('#start').addEventListener('click',()=>{});
+window.addEventListener('beforeunload',e=>{if(S.scr==='s-q'&&S.a.some(x=>x!=null)&&!S.end){e.preventDefault();e.returnValue=''}});
+// ---- Know More
+document.addEventListener('click',async e=>{const b=e.target.closest('[data-km]');if(!b)return;const i=+b.dataset.km,q=S.qs[i],box=b.parentElement.querySelector('.km');
+box.style.display='block';box.innerHTML='<p class="m">Gathering additional information…</p>';
+const gq='https://www.google.com/search?q='+encodeURIComponent(q.t?q.t+' '+q.q:q.q);
+const link=`<p><a href="${gq}" target="_blank" rel="noopener">Search Google for this topic ↗</a></p>`;
+try{const sm=await AIuse();if(!sm)throw 0;const r=await sm(`A student is studying "${q.t||q.q}". Question: ${q.q}\nCorrect answer: ${q.o[q.a]}\nSearch the web, preferring official, educational, technical or authoritative sources. Explain this concept in more depth (150-220 words), going beyond the textbook. Plain text paragraphs, no markdown. Do not invent facts.`,{cache:false,web:true});
+box.innerHTML=`<p><span class="src web">FROM THE WEB · NOT FROM YOUR PDF</span></p>${r.text.split(/\n+/).map(x=>`<p>${esc(x)}</p>`).join('')}${(r.sources||[]).length?'<p><b>Sources:</b></p>'+r.sources.slice(0,5).map(x=>`<p><a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.title||x.url)} ↗</a></p>`).join(''):''}<p class="m" style="font-size:13px">Your PDF-based explanation above remains the primary answer.</p>${link}`}
+catch(_){box.innerHTML=`<p class="m">Extra explanation is unavailable right now.</p>${link}`}});
+</script></body></html>
